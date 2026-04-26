@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Base ---------- */
+@layer base {
+  :root {
+    --bg: 10 14 24; /* #0A0E18 */
+    --panel: 14 19 31; /* #0E131F */
+    --card: 20 25 39; /* #141927 */
+    --fg: 239 237 231; /* #EFEDE7 */
+    --muted: 158 168 189;
+    --accent: 230 199 122;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-900 text-bone font-sans;
+    background-image: radial-gradient(
+        1200px 600px at 85% -10%,
+        rgba(40, 70, 130, 0.15),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 500px at -10% 110%,
+        rgba(30, 50, 90, 0.12),
+        transparent 60%
+      ),
+      linear-gradient(180deg, #0a0e18 0%, #0e131f 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  /* Elegant scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0e18;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #1b2030, #0f1e35);
+    border-radius: 10px;
+    border: 2px solid #0a0e18;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #253a5f;
+  }
+
+  ::selection {
+    background: rgba(230, 199, 122, 0.3);
+    color: #efede7;
+  }
+
+  /* Focus ring */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent/60 ring-offset-2 ring-offset-ink-900;
+  }
+
+  /* Headings share display font */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+}
+
+/* ---------- Reusable component classes ---------- */
+@layer components {
+  .section {
+    @apply relative py-24 md:py-32;
+  }
+
+  .section-title {
+    @apply font-display text-display-md md:text-display-lg text-bone tracking-tight;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-medium uppercase tracking-ultra-wide text-accent;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply inline-block h-px w-10 bg-accent/60;
+  }
+
+  .panel {
+    @apply relative rounded-2xl border border-white/5 bg-ink-800/70 backdrop-blur-sm shadow-panel;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-bone text-ink-900 hover:bg-accent hover:text-ink-900 hover:shadow-glow;
+  }
+
+  .btn-ghost {
+    @apply btn border border-white/15 text-bone hover:border-accent hover:text-accent;
+  }
+
+  .btn-dark {
+    @apply btn bg-ink-700 text-bone border border-white/10 hover:border-accent hover:text-accent;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs uppercase tracking-ultra-wide text-bone/80 transition-colors hover:border-accent/60 hover:text-accent;
+  }
+
+  .chip-active {
+    @apply border-accent/70 bg-accent/10 text-accent;
+  }
+
+  .input-base {
+    @apply w-full rounded-lg border border-white/10 bg-ink-800/60 px-4 py-3.5 text-sm text-bone placeholder:text-bone/40 transition-colors focus:border-accent/60 focus:bg-ink-800;
+  }
+
+  .link-underline {
+    @apply relative inline-block;
+  }
+  .link-underline::after {
+    content: "";
+    @apply absolute left-0 -bottom-1 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-500;
+  }
+  .link-underline:hover::after {
+    @apply scale-x-100;
+  }
+
+  /* Textured denim-like backdrop */
+  .denim-weave {
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.02) 0 1px,
+        transparent 1px 6px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0.015) 0 1px,
+        transparent 1px 6px
+      ),
+      linear-gradient(180deg, #0b1120 0%, #0a0e18 100%);
+  }
+}
+
+/* ---------- Utilities ---------- */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+
+  .border-grid {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Accessibility: respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
