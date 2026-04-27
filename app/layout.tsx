@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     "custom denim",
     "denim export",
     "URDENIM",
-    "URDENIM Trading Indo",
   ],
   authors: [{ name: "URDENIM TRADING INDO" }],
   creator: "URDENIM TRADING INDO",
@@ -49,21 +48,17 @@ export const metadata: Metadata = {
     title: "URDENIM TRADING INDO — Premium Denim Manufacturer & Exporter",
     description:
       "Premium raw, selvage, Japanese and custom denim — crafted in Indonesia, shipped worldwide.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "URDENIM TRADING INDO" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "URDENIM TRADING INDO",
     description:
       "Premium raw, selvage, Japanese and custom denim — crafted in Indonesia, shipped worldwide.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
-  icons: { icon: "/favicon.ico" },
 };
 
 export const viewport: Viewport = {
@@ -79,12 +74,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${archivo.variable}`}>
       <body>
-        
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:text-ink-900"
-        >
-          Skip to content
-        </a>
         <Loader />
         <Navbar />
         <main id="main" className="relative">
