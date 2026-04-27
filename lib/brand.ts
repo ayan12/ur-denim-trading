@@ -4,16 +4,16 @@
  */
 
 export const BRAND = {
-  name: "UR DENIM TRADING INDO",
-  shortName: "UR DENIM",
+  name: "URDENIM TRADING INDO",
+  shortName: "URDENIM",
   tagline: "Premium Denim. Crafted in Indonesia. Shipped worldwide.",
   description:
-    "UR Denim Trading Indo is a trusted denim supplier specializing in premium raw, selvage, and custom denim products for global markets. We combine craftsmanship, quality control, and modern production standards.",
+    "URDENIM Trading Indo is a trusted denim supplier specializing in premium raw, selvage, and custom denim products for global markets. We combine craftsmanship, quality control, and modern production standards.",
   established: 2012,
-  email: "hello@urdenimtrading.com",
-  phone: "+62 812 0000 0000",
-  whatsapp: "+6281200000000",
-  whatsappDisplay: "+62 812 0000 0000",
+  email: "Pturdenimtradingindo@icloud.com",
+  phone: "+62 877 5170 1802",
+  whatsapp: "6287751701802",
+  whatsappDisplay: "+62 877 5170 1802",
   address: "Bandung, West Java — Indonesia",
   social: {
     instagram: "https://instagram.com/urdenimtrading",
@@ -23,5 +23,5 @@ export const BRAND = {
 } as const;
 
 /** Pre-built WhatsApp deep-link with a courteous default message. */
-export const whatsappLink = (message = "Halo UR Denim, I'd like to request a quote.") =>
+export const whatsappLink = (message = "Halo URDENIM, I'd like to request a quote.") =>
   `https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
