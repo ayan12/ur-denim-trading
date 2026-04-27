@@ -54,7 +54,7 @@ const config: Config = {
         bone: "#EFEDE7", // off-white for text
       },
       fontFamily: {
-        display: ["var(--font-display)", "Georgia", "serif"],
+        display: ["var(--font-display)", "Impact", "sans-serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       fontSize: {
