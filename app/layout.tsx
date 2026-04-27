@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Archivo_Black } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,8 +11,9 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
-const playfair = Playfair_Display({
+const archivo = Archivo_Black({
   subsets: ["latin"],
+  weight: "400",
   display: "swap",
   variable: "--font-display",
 });
@@ -22,11 +23,11 @@ const SITE_URL = "https://urdenimtradingindo.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "UR DENIM TRADING INDO — Premium Denim Manufacturer & Exporter",
-    template: "%s | UR DENIM TRADING INDO",
+    default: "URDENIM TRADING INDO — Premium Denim Manufacturer & Exporter",
+    template: "%s | URDENIM TRADING INDO",
   },
   description:
-    "UR DENIM TRADING INDO is a trusted Indonesian denim supplier specializing in premium raw, selvage, Japanese and custom denim for global fashion brands and exporters.",
+    "URDENIM TRADING INDO is a trusted Indonesian denim supplier specializing in premium raw, selvage, Japanese and custom denim for global fashion brands and exporters.",
   keywords: [
     "denim manufacturer",
     "denim supplier indonesia",
@@ -35,31 +36,24 @@ export const metadata: Metadata = {
     "japanese denim",
     "custom denim",
     "denim export",
-    "UR Denim",
-    "UR Denim Trading Indo",
+    "URDENIM",
+    "URDENIM Trading Indo",
   ],
-  authors: [{ name: "UR DENIM TRADING INDO" }],
-  creator: "UR DENIM TRADING INDO",
+  authors: [{ name: "URDENIM TRADING INDO" }],
+  creator: "URDENIM TRADING INDO",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: "UR DENIM TRADING INDO",
-    title: "UR DENIM TRADING INDO — Premium Denim Manufacturer & Exporter",
+    siteName: "URDENIM TRADING INDO",
+    title: "URDENIM TRADING INDO — Premium Denim Manufacturer & Exporter",
     description:
       "Premium raw, selvage, Japanese and custom denim — crafted in Indonesia, shipped worldwide.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "UR DENIM TRADING INDO",
-      },
-    ],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "URDENIM TRADING INDO" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "UR DENIM TRADING INDO",
+    title: "URDENIM TRADING INDO",
     description:
       "Premium raw, selvage, Japanese and custom denim — crafted in Indonesia, shipped worldwide.",
     images: ["/og-image.jpg"],
@@ -67,16 +61,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  icons: { icon: "/favicon.ico" },
 };
 
 export const viewport: Viewport = {
@@ -90,16 +77,14 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${inter.variable} ${archivo.variable}`}>
       <body>
-        {/* Skip link for accessibility */}
-        <a
+        
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:text-ink-900"
         >
           Skip to content
         </a>
-
         <Loader />
         <Navbar />
         <main id="main" className="relative">
